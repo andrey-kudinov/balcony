@@ -12,6 +12,7 @@ export const modals = () => {
   
         modal.style.display = 'block'
         document.body.style.overflow = 'hidden'
+        document.querySelector(`${modalSelector} input`).focus()
         // document.body.classList.add('modal-open')
       })
     })
@@ -21,6 +22,13 @@ export const modals = () => {
       document.body.style.overflow = ''
       // document.body.classList.remove('modal-open')
     })
+
+    document.addEventListener('keydown', event => {
+      if (event.key === "Escape") {
+        modal.style.display = 'none'
+        document.body.style.overflow = ''
+      }
+    });
 
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
@@ -40,5 +48,5 @@ export const modals = () => {
 
   bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close')
   bindModal('.phone_link', '.popup', '.popup .popup_close')
-  showModalByTime('.popup', 3000)
+  // showModalByTime('.popup', 3000)
 }
