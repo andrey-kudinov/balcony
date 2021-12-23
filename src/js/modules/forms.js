@@ -20,13 +20,13 @@ export const forms = () => {
 
     const options = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: data
     }
 
-    const res = await fetch(url, options)
+    const result = await fetch(url, options)
 
-    return await res.text()
+    return await result.text()
   }
 
   const clearInputs = () => {
