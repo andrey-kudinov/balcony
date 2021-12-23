@@ -20,6 +20,7 @@ export const forms = () => {
 
     const options = {
       method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: data
     }
 
@@ -33,7 +34,7 @@ export const forms = () => {
   }
 
   forms.forEach(form => {
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault()
 
       const statusMessage = document.createElement('div')
@@ -43,8 +44,9 @@ export const forms = () => {
       const formData = new FormData(form)
 
       try {
+        const result = await postData('/', formData)
         // const result = await postData('assets/server.php', formData)
-        // console.log('result -', result)
+        console.log('result -', result)
         statusMessage.textContent = message.success
       } catch {
         console.log(error)
