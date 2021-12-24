@@ -1,4 +1,6 @@
-export const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
+export const tabs = (args) => {
+  const {headerSelector, tabSelector, contentSelector, activeClass, display = 'block'} = args
+
   const header = document.querySelector(headerSelector),
     tabs = document.querySelectorAll(tabSelector),
     contents = document.querySelectorAll(contentSelector)
@@ -14,7 +16,7 @@ export const tabs = (headerSelector, tabSelector, contentSelector, activeClass) 
   }
 
   const showTabContent = (i = 0) => {
-    contents[i].style.display = 'block'
+    contents[i].style.display = display
     tabs[i].classList.add(activeClass)
   }
 
