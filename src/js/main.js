@@ -32,5 +32,5 @@ window.addEventListener('DOMContentLoaded', () => {
   tabs(glazing)
   tabs(decoration)
   tabs(balcony)
-  forms()
+  forms(modalState)
 })

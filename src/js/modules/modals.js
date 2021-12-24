@@ -23,7 +23,9 @@ export const modals = () => {
   
         modal.style.display = 'block'
         document.body.style.overflow = 'hidden'
-        document.querySelector(`${modalSelector} input`).focus()
+        if (document.querySelector(`${modalSelector} input:not([type='radio'])`)) {
+          document.querySelector(`${modalSelector} input:not([type='radio'])`).focus()
+        }
         // document.body.classList.add('modal-open')
       })
     })
