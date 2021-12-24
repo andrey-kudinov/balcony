@@ -30,6 +30,10 @@ textarea:focus {
   box-shadow: 0 0 0 2px #ffffff, 0 0 3px 5px #3a97f9;
 }
 
+label {
+  cursor: pointer;
+}
+
 .no-padding {
   padding: 0 !important;
 }
@@ -1031,8 +1035,22 @@ textarea:focus {
   outline: none;
 }
 
+.popup_calc_profile_content label {
+  display: block;
+  margin-left: 25%;
+  text-align: left;
+}
+
 .popup_calc_profile_content .checkbox {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
 }
 
 .popup_calc_profile_content .checkbox-custom {
@@ -1041,6 +1059,10 @@ textarea:focus {
   height: 22px;
   border: 2px solid #ccc;
   border-radius: 3px;
+}
+
+.popup_calc_profile_content .checkbox:focus + .checkbox-custom {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 3px 5px #3a97f9;
 }
 
 .popup_calc_profile_content .checkbox-custom,
