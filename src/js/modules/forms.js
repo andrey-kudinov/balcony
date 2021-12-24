@@ -15,9 +15,12 @@ export const forms = (state) => {
   const postData = async (url, data) => {
     document.querySelector('.status').textContent = message.loading
 
+    for (var pair of data.entries()) {
+      console.log(pair[0]+ ', ' + pair[1]) // ! console.log()
+    }
+
     const options = {
       method: 'POST',
-      // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: data
     }
 
@@ -31,7 +34,7 @@ export const forms = (state) => {
   }
 
   forms.forEach(form => {
-    form.addEventListener('submit', event => {
+    form.addEventListener('submit', async event => {
       event.preventDefault()
 
       const statusMessage = document.createElement('div')
@@ -45,36 +48,36 @@ export const forms = (state) => {
         }
       }
 
-      // try {
-      //   const result = await postData('/', formData)
-      //   // const result = await postData('assets/server.php', formData)
-      //   console.log('result -', result)
-      //   statusMessage.textContent = message.success
-      // } catch {
-      //   console.log(error)
-      //   statusMessage.textContent = message.failure
-      // }
+      try {
+        const result = await postData('/', formData)
+        // const result = await postData('assets/server.php', formData)
+        console.log('result -', result)
+        statusMessage.textContent = message.success
+      } catch {
+        console.log(error)
+        statusMessage.textContent = message.failure
+      }
 
-      postData('/', formData)
-        .then(result => {
-          console.log('result -', result)
-          statusMessage.textContent = message.success
-        })
-        .catch(error => {
-          console.error(error)
-          statusMessage.textContent = message.failure
-        })
-        .finally(() => {
-          clearInputs()
-          setTimeout(() => {
-            statusMessage.remove()
-          }, 10000)
-        })
+      // postData('/', formData)
+      //   .then(result => {
+      //     console.log('result -', result)
+      //     statusMessage.textContent = message.success
+      //   })
+      //   .catch(error => {
+      //     console.error(error)
+      //     statusMessage.textContent = message.failure
+      //   })
+      //   .finally(() => {
+      //     clearInputs()
+      //     setTimeout(() => {
+      //       statusMessage.remove()
+      //     }, 10000)
+      //   })
 
-      // clearInputs()
-      // setTimeout(() => {
-      //   statusMessage.remove()
-      // }, 5000)
+      clearInputs()
+      setTimeout(() => {
+        statusMessage.remove()
+      }, 10000)
     })
   })
 }
