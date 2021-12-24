@@ -928,6 +928,15 @@ textarea:focus {
   margin-bottom: 1rem;
 }
 
+.popup_calc_content .balcon_icons_img {
+  cursor: pointer;
+}
+
+.popup_calc_content .balcon_icons_img:focus img{
+  outline: none;
+  box-shadow: 0 2px 4px -4px #ffffff, 0 6px 4px -4px #3a97f9;
+}
+
 .popup_calc_content .big_img img {
   display: none;
   margin-bottom: 3rem;
