@@ -1,4 +1,5 @@
-import { checkNumInputs } from '/'
+import { checkNumInputs } from './'
+// const  { checkNumInputs }  = require('/');
 
 export const changeModalState = (state) => {
   const windowForms = document.querySelectorAll('.balcon_icons_img'),

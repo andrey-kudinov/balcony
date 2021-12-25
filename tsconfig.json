@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

@@ -5,7 +5,7 @@ export const modals = () => {
     const triggers = document.querySelectorAll(triggerSelector),
       modal = document.querySelector(modalSelector),
       close = document.querySelector(closeSelector),
-      popups =document.querySelectorAll('[data-modal]')
+      popups = document.querySelectorAll<HTMLElement>('[data-modal]')
 
     const closePopups = () => {
       popups.forEach(popup => {
@@ -24,7 +24,7 @@ export const modals = () => {
         modal.style.display = 'block'
         document.body.style.overflow = 'hidden'
         if (document.querySelector(`${modalSelector} input:not([type='radio'])`)) {
-          document.querySelector(`${modalSelector} input:not([type='radio'])`).focus()
+          document.querySelector<HTMLElement>(`${modalSelector} input:not([type='radio'])`).focus()
         }
         // document.body.classList.add('modal-open')
       })

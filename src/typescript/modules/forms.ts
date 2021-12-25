@@ -1,4 +1,5 @@
-import { checkNumInputs } from '/'
+import { checkNumInputs } from './'
+// const  { checkNumInputs }  = require('/');
 
 export const forms = (state) => {
   const forms = document.querySelectorAll('form'),
@@ -54,7 +55,7 @@ export const forms = (state) => {
         console.log('result -', result)
         statusMessage.textContent = message.success
       } catch {
-        console.log(error)
+        console.log(Error)
         statusMessage.textContent = message.failure
       }
 

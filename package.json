@@ -1,31 +1,48 @@
 {
-  "name": "window",
+  "name": "balcony",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Andrey Kudinov",
   "license": "ISC",
   "browserslist": [
     "> 1%",
     "not dead"
   ],
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "babel": "^6.23.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
+    "@types/node": "^13.1.2",
+    "gulp-htmlhint": "^3.0.0",
+    "gulp-prettify": "^0.5.0",
+    "gulp-util": "^3.0.8",
+    "kind-of": "^6.0.3",
+    "minimist": "^1.2.5",
+    "node-sass-package-importer": "^5.3.2",
+    "normalize.css": "^8.0.1",
+    "gulp-changed": "^4.0.2",
+    "gulp-imagemin": "^7.1.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.1",
+    "http-proxy": ">=1.18.1",
+    "yargs-parser": ">=13.1.2",
     "browser-sync": "^2.26.7",
-    "core-js": "^3.4.2",
-    "gulp": "^4.0.2",
-    "webpack": "^4.41.2",
-    "webpack-stream": "^5.2.1"
+    "fs": "^0.0.1-security",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "ts-node": "^8.5.4",
+    "typescript-register": "^1.1.0",
+    "typescript-require": "^0.2.10"
   },
   "dependencies": {
     "jquery": "^3.6.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "gulp": "^4.0.2",
+    "typescript": "^3.7.4"
   }
 }

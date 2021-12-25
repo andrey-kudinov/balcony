@@ -1,5 +1,5 @@
-import './slider';
-import { modals, tabs, forms, changeModalState } from './modules/';
+import { modals, tabs, forms, changeModalState, timer } from './modules';
+// const  { modals, tabs, forms, changeModalState, timer }  = require('./modules');
 
 window.addEventListener('DOMContentLoaded', () => {
   const modalState = {
