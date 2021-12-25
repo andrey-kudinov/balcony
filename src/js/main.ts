@@ -1,19 +1,15 @@
 import './slider';
-import { modals, tabs, forms, changeModalState } from './modules';
+import { modals, tabs, forms, changeModalState, timer } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
-  const modalState = {}
-  
-  changeModalState(modalState)
-
-  modals()
-
-  const glazing = {
-    headerSelector: '.glazing_slider',
-    tabSelector: '.glazing_block',
-    contentSelector: '.glazing_content',
-    activeClass: 'active'
-  },
+  const modalState = {},
+    deadline = '2022/01/01',
+    glazing = {
+      headerSelector: '.glazing_slider',
+      tabSelector: '.glazing_block',
+      contentSelector: '.glazing_content',
+      activeClass: 'active'
+    },
     decoration = {
       headerSelector: '.decoration_slider',
       tabSelector: '.no_click',
@@ -28,8 +24,11 @@ window.addEventListener('DOMContentLoaded', () => {
       display: 'inline-block'
     }
 
+  changeModalState(modalState)
+  modals()
   tabs(glazing)
   tabs(decoration)
   tabs(balcony)
   forms(modalState)
+  timer('.timer1', deadline)
 })
