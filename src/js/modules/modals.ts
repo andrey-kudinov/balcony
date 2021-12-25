@@ -1,11 +1,18 @@
+interface IArgs {
+  triggerSelector: string
+  modalSelector: string
+  closeSelector: string
+  closeClickOverlay?: boolean
+}
+
 export const modals = () => {
-  const bindModal = (args) => {
+  const bindModal = (args: IArgs) => {
     const { triggerSelector, modalSelector, closeSelector, closeClickOverlay = true } = args
 
     const triggers = document.querySelectorAll(triggerSelector),
-      modal = document.querySelector(modalSelector),
+      modal = document.querySelector<HTMLElement>(modalSelector),
       close = document.querySelector(closeSelector),
-      popups =document.querySelectorAll('[data-modal]')
+      popups =document.querySelectorAll<HTMLElement>('[data-modal]')
 
     const closePopups = () => {
       popups.forEach(popup => {
@@ -14,9 +21,9 @@ export const modals = () => {
     }
 
     triggers.forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
-        if (e.target) {
-          e.preventDefault()
+      trigger.addEventListener('click', (event: any) => {
+        if (event.target) {
+          event.preventDefault()
         }
 
         closePopups()
@@ -24,13 +31,13 @@ export const modals = () => {
         modal.style.display = 'block'
         document.body.style.overflow = 'hidden'
         if (document.querySelector(`${modalSelector} input:not([type='radio'])`)) {
-          document.querySelector(`${modalSelector} input:not([type='radio'])`).focus()
+          document.querySelector<HTMLElement>(`${modalSelector} input:not([type='radio'])`).focus()
         }
         // document.body.classList.add('modal-open')
       })
     })
 
-    close.addEventListener('click', (e) => {
+    close.addEventListener('click', (event: any) => {
       modal.style.display = 'none'
       document.body.style.overflow = ''
       // document.body.classList.remove('modal-open')
@@ -43,8 +50,8 @@ export const modals = () => {
       }
     });
 
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal && closeClickOverlay) {
+    modal.addEventListener('click', (event: any) => {
+      if (event.target === modal && closeClickOverlay) {
         closePopups()
 
         modal.style.display = 'none'
@@ -54,7 +61,7 @@ export const modals = () => {
     })
   }
 
-  const showModalByTime = (selector, time) => {
+  const showModalByTime = (selector: any, time: any) => {
     setTimeout(() => {
       document.querySelector(selector).style.display = 'block'
       document.body.style.overflow = ''

@@ -13,9 +13,10 @@ gulp.task("copy-html", () => {
 });
 
 gulp.task("build-js", () => {
-    return gulp.src("./src/js/main.js")
+    return gulp.src("./src/js/main.ts")
                 .pipe(webpack({
                     mode: 'development',
+                    entry: './src/js/main.ts',
                     output: {
                         filename: 'script.js'
                     },
@@ -24,21 +25,15 @@ gulp.task("build-js", () => {
                     module: {
                         rules: [
                           {
-                            test: /\.m?js$/,
-                            exclude: /(node_modules|bower_components)/,
-                            use: {
-                              loader: 'babel-loader',
-                              options: {
-                                presets: [['@babel/preset-env', {
-                                    debug: true,
-                                    corejs: 3,
-                                    useBuiltIns: "usage"
-                                }]]
-                              }
-                            }
+                            test: /\.tsx?$/,
+                            use: 'ts-loader',
+                            exclude: /node_modules/,
                           }
                         ]
-                      }
+                      },
+                      resolve: {
+                        extensions: ['.tsx', '.ts', '.js'],
+                      },
                 }))
                 .pipe(gulp.dest(dist))
                 .on("end", browsersync.reload);

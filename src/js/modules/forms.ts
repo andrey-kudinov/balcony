@@ -1,6 +1,6 @@
-import { checkNumInputs } from '/'
+import { checkNumInputs } from './'
 
-export const forms = (state) => {
+export const forms = (state: any) => {
   const forms = document.querySelectorAll('form'),
     inputs = document.querySelectorAll('input')
 
@@ -12,7 +12,7 @@ export const forms = (state) => {
     failure: 'Что-то пошло не так...'
   }
 
-  const postData = async (url, data) => {
+  const postData = async (url: string, data: FormData) => {
     document.querySelector('.status').textContent = message.loading
 
     for (var pair of data.entries()) {
@@ -54,25 +54,9 @@ export const forms = (state) => {
         console.log('result -', result)
         statusMessage.textContent = message.success
       } catch {
-        console.log(error)
+        console.log(Error)
         statusMessage.textContent = message.failure
       }
-
-      // postData('/', formData)
-      //   .then(result => {
-      //     console.log('result -', result)
-      //     statusMessage.textContent = message.success
-      //   })
-      //   .catch(error => {
-      //     console.error(error)
-      //     statusMessage.textContent = message.failure
-      //   })
-      //   .finally(() => {
-      //     clearInputs()
-      //     setTimeout(() => {
-      //       statusMessage.remove()
-      //     }, 10000)
-      //   })
 
       clearInputs()
       setTimeout(() => {
