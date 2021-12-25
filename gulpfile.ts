@@ -104,7 +104,7 @@ function ts() {
       typescript(
         'tsconfig.json',
         {
-          target: "ES6"
+          target: "esnext"
         }
       )
     )

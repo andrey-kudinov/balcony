@@ -12,6 +12,7 @@
     "> 1%",
     "not dead"
   ],
+  "type": "module",
   "devDependencies": {
     "@types/node": "^13.1.2",
     "gulp-htmlhint": "^3.0.0",
