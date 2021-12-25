@@ -1,9 +1,21 @@
-export const tabs = (args) => {
+interface IArgs {
+  headerSelector: string
+  tabSelector: string
+  contentSelector: string
+  activeClass: string
+  display?: string
+}
+
+// interface KeyboardEvent {
+//   key: boolean;
+// }
+
+export const tabs = (args: IArgs) => {
   const {headerSelector, tabSelector, contentSelector, activeClass, display = 'block'} = args
 
   const header = document.querySelector(headerSelector),
     tabs = document.querySelectorAll(tabSelector),
-    contents = document.querySelectorAll(contentSelector)
+    contents = document.querySelectorAll<HTMLElement>(contentSelector)
 
   const hideTabContent = () => {
     contents.forEach(content => {
@@ -23,7 +35,7 @@ export const tabs = (args) => {
   hideTabContent()
   showTabContent()
 
-  const handleAction = (event) => {
+  const handleAction = (event: any) => {
     const { target } = event
     
     if (
@@ -41,11 +53,11 @@ export const tabs = (args) => {
     }
   }
 
-  header.addEventListener('click', event => {
+  header.addEventListener('click', (event: MouseEvent) => {
     handleAction(event)
   })
 
-  header.addEventListener('keydown', event => {
+  header.addEventListener('keydown', (event: KeyboardEvent) => {
     if (event.key === "Enter") {
       handleAction(event)
     }

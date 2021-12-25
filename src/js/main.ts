@@ -1,10 +1,9 @@
 import './slider';
-import { modals, tabs, forms, changeModalState } from './modules/';
+import { modals, tabs, forms, changeModalState } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
-  const modalState = {
-
-  }
+  const modalState = {}
+  
   changeModalState(modalState)
 
   modals()
