@@ -57,7 +57,7 @@ gulp.task("watch", () => {
     gulp.watch("./src/js/**/*.js", gulp.parallel("build-ts"));
 });
 
-gulp.task("build-prod", () => {
+gulp.task("build-prod-ts", () => {
   return gulp.src("./src/ts/main.ts")
               .pipe(webpack({
                 mode: 'production',
@@ -84,5 +84,7 @@ gulp.task("build-prod", () => {
 });
 
 gulp.task("build", gulp.parallel("copy-html", "copy-assets", "build-ts"));
+
+gulp.task("build-prod", gulp.parallel("copy-html", "copy-assets", "build-prod-ts"));
 
 gulp.task("default", gulp.parallel("watch", "build"));
