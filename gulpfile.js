@@ -20,7 +20,7 @@ gulp.task("build-js", () => {
                     output: {
                         filename: 'script.js'
                     },
-                    watch: false,
+                    watch: true,
                     devtool: "source-map",
                     module: {
                         rules: [
@@ -58,33 +58,5 @@ gulp.task("watch", () => {
 });
 
 gulp.task("build", gulp.parallel("copy-html", "copy-assets", "build-js"));
-
-gulp.task("build-prod-js", () => {
-    return gulp.src("./src/js/main.js")
-                .pipe(webpack({
-                    mode: 'production',
-                    output: {
-                        filename: 'script.js'
-                    },
-                    module: {
-                        rules: [
-                          {
-                            test: /\.m?js$/,
-                            exclude: /(node_modules|bower_components)/,
-                            use: {
-                              loader: 'babel-loader',
-                              options: {
-                                presets: [['@babel/preset-env', {
-                                    corejs: 3,
-                                    useBuiltIns: "usage"
-                                }]]
-                              }
-                            }
-                          }
-                        ]
-                      }
-                }))
-                .pipe(gulp.dest(dist));
-});
 
 gulp.task("default", gulp.parallel("watch", "build"));
