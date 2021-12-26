@@ -34,6 +34,19 @@ label {
   cursor: pointer;
 }
 
+.faded {
+  animation-name: faded;
+  animation-duration: .5s;
+}
+
+@keyframes faded {
+  from {
+    opacity: .1;
+  } to {
+    opacity: 1;
+  }
+}
+
 .no-padding {
   padding: 0 !important;
 }
@@ -385,14 +398,17 @@ label {
   font-size: 1.8rem;
   font-weight: 600;
   text-decoration: underline;
-  /*&:focus {
-				text-decoration: none;
-				color: #454545;
-			}*/
 }
 
 .glazing_block a:hover {
   cursor: pointer;
+  text-decoration: none;
+}
+
+.glazing_block a:focus {
+  box-shadow: none;
+  text-decoration: none;
+  color: #454545;
 }
 
 .glazing_cold {
@@ -522,14 +538,6 @@ label {
   border: none;
   text-decoration: none;
   color: #0089cd;
-  /*border-top: 1rem solid @blue;
-				height: 8rem;
-				padding: 2rem 1rem;
-				background: -webkit-linear-gradient(-90deg, #ebebeb 0%, #ebebeb 0%, rgba(255, 255, 255, 0) 100%);
-				background: -moz-linear-gradient(-90deg, #ebebeb 0%, #ebebeb 0%, rgba(255, 255, 255, 0) 100%);
-				background: -o-linear-gradient(-90deg, #ebebeb 0%, #ebebeb 0%, rgba(255, 255, 255, 0) 100%);
-				background: -ms-linear-gradient(-90deg, #ebebeb 0%, #ebebeb 0%, rgba(255, 255, 255, 0) 100%);
-				background: linear-gradient(180deg, #ebebeb 0%, #ebebeb 0%, rgba(255, 255, 255, 0) 100%);*/
 }
 
 .decoration_item .no_click {
@@ -723,13 +731,6 @@ label {
   text-align: center;
   color: black;
 }
-
-
-
-
-
-
-
 
 /*Contacts*/
 .contacts {
