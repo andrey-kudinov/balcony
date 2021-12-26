@@ -1,4 +1,4 @@
-import { checkNumInputs } from './'
+import { checkNumInputs } from '.'
 
 export const forms = (state: any) => {
   const forms = document.querySelectorAll('form'),
